@@ -10,5 +10,5 @@ class IsOwnerOrReadonly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        # Write permissions are only allowed to the owner of the snippet.
+    # Write permissions are only allowed to the owner of the snippet.
 	return obj.username == request.user.get_username()

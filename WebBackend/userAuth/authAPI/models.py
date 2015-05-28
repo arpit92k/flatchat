@@ -2,8 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractBaseUser
 
-# Create your models here.
-
+"""
+UserProfle to store authorized users and custom data attributes
+"""
 class UserProfile(AbstractBaseUser):
 	username=models.CharField(max_length=100)
 	email = models.EmailField(max_length=100,blank=True)
