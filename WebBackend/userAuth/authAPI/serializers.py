@@ -1,15 +1,17 @@
 from rest_framework import serializers
-from authAPI.models import UserInfo
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
-	about = serializers.PrimaryKeyRelatedField(many=True, queryset=UserInfo.objects.all())
 	class Meta:
 		model=User
-		fields = ('id','username','email','about')
+		fields = ('id','email','username','first_name','last_name')
 
-class UserInfoSerializer(serializers.ModelSerializer):
-	owner = serializers.ReadOnlyField(source='owner.username')
+class LoginSerializer(serializers.ModelSerializer):
 	class Meta:
-		model=UserInfo
-		fields=('id','owner','about')
+		model=User
+		fields=('username','password')
+
+class SignupSerializer(serializers.ModelSerializer):
+	class Meta:
+		model=User
+		fields=('username','email','password','first_name','last_name')
