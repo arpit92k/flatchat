@@ -20,3 +20,7 @@ http://host:port/logout/    -- logout user
 to access in json responce from browser
 http://host:port/user/?format=json
 http://host:port/user/<id>/?format=json
+
+Files :
+authAPI : project directory
+serAuth : app directory
